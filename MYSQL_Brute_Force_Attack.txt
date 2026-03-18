@@ -1,23 +1,50 @@
-MYSQL Brute force attack:
+# Attack Report — MySQL Brute Force
+**Date:** 2026-03-17  
+**Time:** 03:44 AM UTC  
+**Severity:** High  
 
-2026/03/17 3:44AM - Sudden rush of brute SQL attacks from "192.109.200.204" with unknown reputation on port 3306, Sweden origin. Approx 30~ attacks per second, extreme spam unsure of attacks per second.
-Ran Spiderfoot on IP with investigate, immediately came back within minutes with affiliated malicious IP, blacklisted IP as shown below. Still running scan but this is within 5~ minutes of scanning.
+---
 
-        Type                           |  Unique Data Elements  | Total Data Elements  |   Last Data Element               
-----------------------------------------------------------------------------------------------------------------
+## Overview
+While monitoring live traffic, a sudden rush of attacks at approx a rate of ~30/s attacks from the same IP which had an "unknown reputation" by an IP in Sweden at an extremely high rate for a good minute all directed at port 3306 with login attempts.
+Credential logging wasn't possible due to the honeypot not implementing a full MYSQL authentication handshake, preventing credential logging.
 
-Affiliate - IP Address	               |            1 5	        |        15	           |   2026-03-17 07:46:28
-Affiliate - Internet Name - Unresolved |	          14	        |        15	           |   2026-03-17 07:47:59
-BGP AS Membership	                     |            1	          |        1	           |   2026-03-17 07:46:46
-Blacklisted Affiliate IP Address	     |            17  	      |        17	           |   2026-03-17 07:48:17
-Blacklisted IP Address	               |            1  	        |        1	           |   2026-03-17 07:46:50
-Blacklisted IP on Same Subnet	         |            264	        |        264	         |   2026-03-17 07:48:54
-IP Address	                           |            1	          |        1    	       |   2026-03-17 07:46:26
-Internet Name - Unresolved	           |            1	          |        1  	         |   2026-03-17 07:46:27
-Malicious Affiliate IP Address	       |            19	        |        19  	         |   2026-03-17 07:48:17
-Malicious IP Address	                 |            2	          |        2	           |   2026-03-17 07:46:50
-Malicious IP on Same Subnet	           |            264	        |        264	         |   2026-03-17 07:48:54
-Netblock Membership	                   |            1	          |        1	           |   2026-03-17 07:46:37
-Open TCP Port	                         |            1	          |        1    	       |   2026-03-17 07:46:48
-Raw Data from RIRs/APIs	               |            3	          |        3    	       |   2026-03-17 07:46:37
-----------------------------------------------------------------------------------------------------------------
+---
+
+## Attack Details
+| Field        | Value                  |
+|--------------|------------------------|
+| Source IP    | 192.109.200.204        |
+| Origin       | Sweden                 |
+| Target Port  | 3306 (MySQL)           |
+| Attack Type  | Brute Force            |
+| Rate         | ~30 connections/sec    |
+
+---
+
+## OSINT Findings (Spiderfoot)
+| Type                          | Unique | Total |
+|-------------------------------|--------|-------|
+| Affiliate IP Address          | 15     | 15    |
+| Blacklisted IP Address        | 1      | 1     |
+| Blacklisted IP on Same Subnet | 264    | 264   |
+| Malicious Affiliate IP        | 19     | 19    |
+| Malicious IP on Same Subnet   | 264    | 264   |
+
+---
+
+## Analysis
+Mass random attacks on open 3306 ports with brute force logins to gain access to databases.
+
+---
+
+## IOCs
+- **IP:** 192.109.200.204
+- **Port:** 3306
+- **Protocol:** TCP
+- **BGP AS:** 51396
+
+---
+
+## Conclusion
+What you concluded, what was done in response if anything.
