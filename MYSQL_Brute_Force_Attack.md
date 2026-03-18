@@ -47,4 +47,5 @@ Mass random attacks on open 3306 ports with brute force logins to gain access to
 ---
 
 ## Conclusion
-What you concluded, what was done in response if anything.
+Attack was mass done over the entire internet to any open 3306 ports, trying to gain access through brute forcing. Found out that I need to add full MYSQL authentication handshake to then log credential login attempts.
+Depending on my VPS specs, I might not be able to unless I upgrade and pay more.
