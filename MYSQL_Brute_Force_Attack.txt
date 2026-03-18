@@ -1,0 +1,18 @@
+MYSQL Brute force attack:
+
+2026/03/17 3:44AM - Sudden rush of brute SQL attacks from "192.109.200.204" with unknown reputation on port 3306, Sweden origin. Approx 30~ attacks per second, extreme spam unsure of attacks per second.
+Ran Spiderfoot on IP with investigate, immediately came back within minutes with affiliated malicious IP, blacklisted IP as shown below. Still running scan but this is within 5~ minutes of scanning.
+
+Affiliate - IP Address			15	15	2026-03-17 07:46:28
+Affiliate - Internet Name - 		Unresolved	10	11	2026-03-17 07:47:42
+BGP AS Membership			1	1	2026-03-17 07:46:46
+Blacklisted Affiliate IP Address	10	10	2026-03-17 07:47:40
+Blacklisted IP Address			1	1	2026-03-17 07:46:50
+IP Address				1	1	2026-03-17 07:46:26
+Internet Name - Unresolved		1	1	2026-03-17 07:46:27
+Malicious Affiliate IP Address		12	12	2026-03-17 07:47:40
+Malicious IP Address			2		2	2026-03-17 07:46:50
+Netblock Membership			1	1	2026-03-17 07:46:37
+Open TCP Port				1	1	2026-03-17 07:46:48
+Raw Data from RIRs/APIs			3	3	2026-03-17 07:46:37
+
